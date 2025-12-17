@@ -25,7 +25,7 @@ struct IndicacaoView: View {
                         text: $viewModel.telefoneAmigo,
                         keyboardType: .numberPad
                     )
-                    .onChange(of: viewModel.telefoneAmigo) {oldValue, newValue in
+                    .onChange(of: viewModel.telefoneAmigo) { newValue in
                         if newValue.count > 15 {
                             viewModel.telefoneAmigo = String(newValue.prefix(15))
                         }
@@ -48,7 +48,7 @@ struct IndicacaoView: View {
                     SectionHeader(title: "SEUS DADOS")
                     
                     UnderlinedTextField(placeholder: "Placa do seu Veículo", text: $viewModel.placaVeiculo)
-                        .onChange(of: viewModel.placaVeiculo) {oldValue, newValue in
+                        .onChange(of: viewModel.placaVeiculo) { newValue in
                             if newValue.count > 8 {
                                 viewModel.placaVeiculo = String(newValue.prefix(8)).uppercased()
                             } else {

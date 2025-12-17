@@ -26,7 +26,7 @@ struct LoginView: View {
                             text: $viewModel.cpf,
                             keyboardType: .numberPad
                         )
-                        .onChange(of: viewModel.cpf) { oldValue, newValue in
+                        .onChange(of: viewModel.cpf) { newValue in
                             if newValue.count > 14 {
                                 viewModel.cpf = String(newValue.prefix(14))
                             }
